@@ -111,6 +111,24 @@ public final class Customer {
 		this.otherDetails = otherDetails;
 		this.orders = order;
 	}
+	
+	public Customer(String title, String firstName, String middleName, String lastName, String suffix,
+			String email, String company, String displayName, String printOnCheckAs, String otherDetails,
+			List<Orders> order, Address address) {
+		super();
+		this.title = title;
+		this.firstName = firstName;
+		this.middleName = middleName;
+		this.lastName = lastName;
+		this.suffix = suffix;
+		this.email = email;
+		this.company = company;
+		this.displayName = displayName;
+		this.printOnCheckAs = printOnCheckAs;
+		this.otherDetails = otherDetails;
+		this.orders = order;
+		this.address = address;
+	}
 
 	public Customer(int customerID, String title, String firstName, String middleName, String lastName, String suffix,
 			String email, String company, String displayName, String printOnCheckAs, String otherDetails,
