@@ -15,7 +15,7 @@ import trng.springweb.model.Customer;
 import trng.springweb.service.CustomerService;
 
 @RestController
-@RequestMapping("/customer")
+@RequestMapping("/customers")
 public class CustomerRestController {
 
 	@Autowired
@@ -30,7 +30,7 @@ public class CustomerRestController {
 			return new ResponseEntity<Customer>(customer, HttpStatus.SERVICE_UNAVAILABLE);
 	}
 
-	@RequestMapping(value = "/{customerId}", method = RequestMethod.DELETE)
+	@RequestMapping(value = "/delete/{customerId}", method = RequestMethod.DELETE)
 	public ResponseEntity<Customer> deleteCustomer(@PathVariable int customerId) {
 		boolean res = cserv.deleteCustomer(customerId);
 		if (res)
@@ -39,7 +39,7 @@ public class CustomerRestController {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 	}
 	
-	@RequestMapping(value = { "/", "" }, method = RequestMethod.PUT)
+	@RequestMapping(value = "/update", method = RequestMethod.PUT)
 	public ResponseEntity<Customer> updateCustomer(@RequestBody Customer customer) {
 		boolean res = cserv.updateCustomer(customer);
 		if (res)
