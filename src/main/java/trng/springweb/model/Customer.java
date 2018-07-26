@@ -14,6 +14,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
 
 import lombok.Data;
 
@@ -32,21 +33,25 @@ public final class Customer {
 	private String title;
 
 	@Column(name = "first_name")
+	@NotEmpty
 	private String firstName;
 
 	@Column(name = "middle_name")
 	private String middleName;
 
 	@Column(name = "last_name")
+	@NotEmpty
 	private String lastName;
 
 	@Column(name = "suffix")
 	private String suffix;
 
 	@Email(message = "Please Enter a valid email")
+	@NotEmpty
 	private String email;
 
 	@Column(name = "company")
+	@NotEmpty
 	private String company;
 
 	@Column(name = "display_name")
@@ -127,6 +132,22 @@ public final class Customer {
 		this.printOnCheckAs = printOnCheckAs;
 		this.otherDetails = otherDetails;
 		this.orders = order;
+		this.address = address;
+	}
+	
+	public Customer(String title, String firstName, String middleName, String lastName, String suffix, String email,
+			String company, String displayName, String printOnCheckAs, String otherDetails, Address address) {
+		super();
+		this.title = title;
+		this.firstName = firstName;
+		this.middleName = middleName;
+		this.lastName = lastName;
+		this.suffix = suffix;
+		this.email = email;
+		this.company = company;
+		this.displayName = displayName;
+		this.printOnCheckAs = printOnCheckAs;
+		this.otherDetails = otherDetails;
 		this.address = address;
 	}
 
