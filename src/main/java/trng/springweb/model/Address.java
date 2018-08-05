@@ -2,7 +2,6 @@ package trng.springweb.model;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
-import javax.validation.constraints.NotEmpty;
 
 import lombok.Data;
 
@@ -10,19 +9,15 @@ import lombok.Data;
 @Data
 public class Address{
 	@Column(name = "bill_street")
-	@NotEmpty
 	private String billingStreet;
 	
 	@Column(name = "bill_city")
-	@NotEmpty
 	private String billingCity;
 	
 	@Column(name = "bill_state")
-	@NotEmpty
 	private String billingState;
 	
 	@Column(name = "bill_zip")
-	@NotEmpty
 	private String billingZIP;
 	
 	@Column(name = "bill_country")
@@ -30,6 +25,7 @@ public class Address{
 	
 	@Column(name = "ship_street")
 	private String shippingStreet;
+	
 	@Column(name = "ship_city")
 	private String shippingCity;
 	
@@ -44,6 +40,13 @@ public class Address{
 	
 	public Address() {
 		super();
+	}
+	
+	public Address(String billingStreet, String billingCity, String billingZIP) {
+		super();
+		this.billingStreet = billingStreet;
+		this.billingCity = billingCity;
+		this.billingZIP = billingZIP;
 	}
 	
 	public Address(String billingStreet, String billingCity, String billingState, String billingZIP,
